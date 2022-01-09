@@ -75,7 +75,6 @@ class tool_recognition_ros(Node):
 
         self.image_pub = self.create_publisher(Image, "/tool_detection/tool_image", 10)
         self.image_sub = self.create_subscription(Image, "/camera/color/image_raw", self.camera_callback,10)
-        #self.image_sub = self.create_subscription(Image, "/image_raw", self.camera_callback,10)
     
     def camera_callback(self,data):
         t0 = time.time()
