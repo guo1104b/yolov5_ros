@@ -71,7 +71,7 @@ class tool_recognition_ros(Node):
 
         # Run inference
         if self.device.type != 'cpu':
-            self.model(torch.zeros(1, 3, imgsz, imgsz).to(self.device).type_as(next(model.parameters())))  # run once
+            self.model(torch.zeros(1, 3, imgsz, imgsz).to(self.device).type_as(next(self.model.parameters())))  # run once
 
         self.image_pub = self.create_publisher(Image, "/tool_detection/tool_image", 10)
         self.image_sub = self.create_subscription(Image, "/camera/color/image_raw", self.camera_callback,10)
